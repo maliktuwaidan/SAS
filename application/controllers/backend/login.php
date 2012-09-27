@@ -2,22 +2,33 @@
 
 class login extends CI_Controller {
 
-	function __construct()
-	{
+	function __construct() {
 		parent::__construct();
 		
-		$this->load->library('sas_constants');
-		$data['backend'] = $this->sas_constants->get_backend_attribute(array('javascript', 'css'));
+		//LOAD LIBRARY
+		$this->load->library(array('sas_constants', 'form_validation'));
+		
+		// LOAD MODEL
+		$this->load->model('backend/login_model');
+		
+		//LOAD VARIABLE
+		$data['title'] = 'Sistem Akademik Sekolah - Login';
+		$data['main'] = 'backend/form/login';
+		$data['backend'] = $this->sas_constants->get_backend_attribute(array('javascript', 'css', 'layout_image'));
+		$this->load->vars($data);
 	}
 	
 	var $data;
 	
-	public function index()
-	{
-		$data['main'] = 'login';
-		
-		$this->load->view('backend/template', $data);
+	public function index() {
+		if($_POST)
+			if($this->login_model->_login_validation())
+				if($this->login_model->_check_user())
+					redirect('login/berhasil');
+		$this->load->view('backend/template');
 	}
+	
+	
 }
 
 /* End of file welcome.php */

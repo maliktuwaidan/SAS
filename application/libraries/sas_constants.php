@@ -54,13 +54,13 @@ class sas_constants {
 		// get icon for backend
 		if(in_array('ico', $array_val)){
 		
-			$result['css'] = array();
+			$result['ico'] = array();
 			
-			array_push($result['css'], link_tag(base_url().'_/img/ico.ico'));
+			array_push($result['ico'], link_tag(base_url().'_/img/ico.ico'));
 		}
 		
 		// get layout image path for backend
-		if(in_array('image', $array_val)){
+		if(in_array('layout_image', $array_val)){
 		
 			$result['layout_image_path'] = base_url().'_/img/'; ;
 		}
