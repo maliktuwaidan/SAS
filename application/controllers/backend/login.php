@@ -15,17 +15,28 @@ class login extends CI_Controller {
 		$data['title'] = 'Sistem Akademik Sekolah - Login';
 		$data['main'] = 'backend/form/login';
 		$data['backend'] = $this->sas_constants->get_backend_attribute(array('javascript', 'css', 'layout_image'));
+		
+		if($_POST)
+			if($this->login_model->_login_validation())
+				if($this->login_model->_check_user()){
+					redirect('login/berhasil');
+				}else{
+					$data['validation_error'] = 'Username / Password anda salah, harap ulangi proses.';
+				}
+				
 		$this->load->vars($data);
 	}
 	
 	var $data;
 	
 	public function index() {
-		if($_POST)
-			if($this->login_model->_login_validation())
-				if($this->login_model->_check_user())
-					redirect('login/berhasil');
+		
 		$this->load->view('backend/template');
+	}
+	
+	function test() {
+		$time = getdate();
+		echo 'SAS-'.$time['seconds'].$time['minutes'].$time['hours'].'-'.$time['mday'].$time['mon'].'-'.$time['year'];
 	}
 	
 	

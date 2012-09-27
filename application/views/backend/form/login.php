@@ -7,10 +7,15 @@
 				</div>
 				
 				<div class="span7">
+				
 					<h2>Selamat Datang pada SAS</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+					<b>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</b>
 					<hr>
-					<?php echo form_open('backend/login', 'class="form-horizontal"'); ?>
+					
+					<?php 
+						if($_POST && !empty($validation_error))
+							echo '<b>'.$validation_error.'</b>';
+						echo form_open('backend/login', 'class="form-horizontal"'); ?>
 					
 						<div class="control-group <?php echo form_error('inputUser') ? 'error' : ''; ?>">
 							<label class="control-label" for="inputUser">Username</label>
@@ -26,9 +31,9 @@
 							</div>
 						</div>
 						
-						<div class="control-group error">
+						<div class="control-group warning">
 							<div class="controls">
-								<button type="submit" class="btn">Sign in</button>
+								<button type="submit" class="btn">Sign in</button>  
 							</div>
 						</div>
 						

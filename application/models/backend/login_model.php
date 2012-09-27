@@ -19,15 +19,15 @@ class login_model extends CI_Model {
 		return $this->form_validation->run();
 	}
 	
-	function _check_user($username, $password)
+	function _check_user()
 	{
-		$this->db->where('login_user ', $username);
-		$this->db->where('login_password', md5($password));
-		$this->db->where('flag_aktif ', 1);
-		$query = $this->db->get('pb_login');
+		$this->db->where('SAS_USERNAME ', $this->input->post('inputUser'));
+		$this->db->where('SAS_PASSWORD', md5($this->input->post('inputPassword')));
+		$this->db->where('SAS_ACTIVE_FLAG ', 1);
+		$query = $this->db->get('sas_user_login');
 		if ($query->num_rows() != 0)
 		{
-			return $query->result();
+			return true;
 		}
 		else
 		{
