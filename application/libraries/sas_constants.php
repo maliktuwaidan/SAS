@@ -77,7 +77,7 @@ class sas_constants {
 	
 	public function get_sas_code() {
 		$time = getdate();	
-		return 'SAS-'.$time['seconds'].$time['minutes'].$time['hours'].'-'.$time['mday'].$time['mon'].'-'.$time['year'];
+		return 'SAS-'.$time['0'].'-'.$time['mday'].$time['mon'].'-'.$time['year'];
 	}
 	
 	public function get_image_path() {	

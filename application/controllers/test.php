@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class wel extends CI_Controller {
+class test extends CI_Controller {
 
 	function __construct()
 	{
@@ -12,6 +12,8 @@ class wel extends CI_Controller {
 	public function index()
 	{
 		print_r($this->sas_constants->get_path(array('images','javascript','css')));
+		
+		echo $this->sas_constants->get_sas_code();
 	}
 }
 
