@@ -27,7 +27,12 @@
 	<!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-	<?php foreach($backend['javascript'] as $row) echo $row; ?>
+	<?php 
+		foreach($backend['javascript'] as $row) echo $row; 
+		if($this->session->userdata('JS_INIT')){
+			echo '<script src="'.base_url().'javascript"></script>';
+		}
+	?>
 
   </body>
 </html>

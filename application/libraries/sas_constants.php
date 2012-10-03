@@ -28,34 +28,40 @@ class sas_constants {
 		
 			$result['javascript'] = array();
 			
-			array_push($result['javascript'], '<script src="'.base_url().'_/js/jquery.js"></script>');
-			array_push($result['javascript'], '<script src="'.base_url().'_/js/bootstrap-transition.js"></script>');
-			array_push($result['javascript'], '<script src="'.base_url().'_/js/bootstrap-alert.js"></script>');
-			array_push($result['javascript'], '<script src="'.base_url().'_/js/bootstrap-modal.js"></script>');
-			array_push($result['javascript'], '<script src="'.base_url().'_/js/bootstrap-dropdown.js"></script>');
-			array_push($result['javascript'], '<script src="'.base_url().'_/js/bootstrap-scrollspy.js"></script>');
-			array_push($result['javascript'], '<script src="'.base_url().'_/js/bootstrap-tab.js"></script>');
-			array_push($result['javascript'], '<script src="'.base_url().'_/js/bootstrap-tooltip.js"></script>');
-			array_push($result['javascript'], '<script src="'.base_url().'_/js/bootstrap-popover.js"></script>');
-			array_push($result['javascript'], '<script src="'.base_url().'_/js/bootstrap-button.js"></script>');
-			array_push($result['javascript'], '<script src="'.base_url().'_/js/bootstrap-collapse.js"></script>');
-			array_push($result['javascript'], '<script src="'.base_url().'_/js/bootstrap-typeahead.js"></script>');
+			array_push($result['javascript'], '<script src="'.base_url().'_/js/jquery.min.js"></script>');
+			array_push($result['javascript'], '<script src="'.base_url().'_/js/bootstrap-transition.min.js"></script>');
+			array_push($result['javascript'], '<script src="'.base_url().'_/js/bootstrap-alert.min.js"></script>');
+			array_push($result['javascript'], '<script src="'.base_url().'_/js/bootstrap-modal.min.js"></script>');
+			array_push($result['javascript'], '<script src="'.base_url().'_/js/bootstrap-dropdown.min.js"></script>');
+			array_push($result['javascript'], '<script src="'.base_url().'_/js/bootstrap-scrollspy.min.js"></script>');
+			array_push($result['javascript'], '<script src="'.base_url().'_/js/bootstrap-tab.min.js"></script>');
+			array_push($result['javascript'], '<script src="'.base_url().'_/js/bootstrap-tooltip.min.js"></script>');
+			array_push($result['javascript'], '<script src="'.base_url().'_/js/bootstrap-popover.min.js"></script>');
+			array_push($result['javascript'], '<script src="'.base_url().'_/js/bootstrap-button.min.js"></script>');
+			array_push($result['javascript'], '<script src="'.base_url().'_/js/bootstrap-collapse.min.js"></script>');
+			array_push($result['javascript'], '<script src="'.base_url().'_/js/bootstrap-typeahead.min.js"></script>');
+			array_push($result['javascript'], '<script src="'.base_url().'_/js/jquery.validate.min.js"></script>');
+			array_push($result['javascript'], '<script src="'.base_url().'_/js/jquery.dataTables.min.js"></script>');
+			array_push($result['javascript'], '<script src="'.base_url().'_/js/htmlbox.colors.min.js"></script>');
+			array_push($result['javascript'], '<script src="'.base_url().'_/js/htmlbox.styles.min.js"></script>');
+			array_push($result['javascript'], '<script src="'.base_url().'_/js/htmlbox.syntax.min.js"></script>');
+			array_push($result['javascript'], '<script src="'.base_url().'_/js/htmlbox.undoredomanager.min.js"></script>');
+			array_push($result['javascript'], '<script src="'.base_url().'_/js/htmlbox.min.js"></script>');
 		}
 		
 		// get css for backend
 		if(in_array('css', $array_val)){
 		
 			$result['css'] = array();
-			
+			array_push($result['css'], link_tag(base_url().'_/css/demo_table.css'));
 			array_push($result['css'], link_tag(base_url().'_/css/bootstrap.css'));
 			array_push($result['css'], link_tag(base_url().'_/css/bootstrap-responsive.css'));
+			array_push($result['css'], link_tag(base_url().'_/css/form-validate.css'));
 		}
 		
 		// get icon for backend
 		if(in_array('ico', $array_val)){
-		
 			$result['ico'] = array();
-			
 			array_push($result['ico'], link_tag(base_url().'_/img/ico.ico'));
 		}
 		
