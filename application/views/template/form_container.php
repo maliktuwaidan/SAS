@@ -1,0 +1,1 @@
+<?php $this->load->view('template/navigation'); ?><div class="container">	<?php 			$this->load->view('breadcrumb/breadcrumb', array('trace' => $row['0']));			$this->load->view($row['1'], array('resource' => $row['2']));		?>	<!-- Example row of columns -->    <hr>  <?php $this->load->view('template/footer_view'); ?></div> <!-- /container -->

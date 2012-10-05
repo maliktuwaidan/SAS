@@ -1,4 +1,4 @@
-<?php echo form_open('ajax_service/berita_insert', 'id="berita" class="form-horizontal ajaxFormInsert"'); ?>
+<?php echo form_open($resource['formAction'], 'id="berita" class="form-horizontal '.$resource['addClass'].'"'); ?>
 
 	<div class="control-group">
 		<label class="control-label" for="judulBerita">Judul berita</label>

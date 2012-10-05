@@ -39,17 +39,37 @@ class administrator extends CI_Controller {
 		//print_r($dataTableBerita);
 		$tab = array();
 		array_push($tab, array('Cari Berita','table_view', $dataTableBerita, 'table/admin_berita_table'));
-		array_push($tab, array('Tambah Berita','form_view', 'form/form_berita'));
+		array_push($tab, array('Tambah Berita','form_view', array('formAction' => 'ajax_service/berita_insert', 'addClass' => 'ajaxFormInsert'), 'form/form_berita'));
 		
 		// SETING TAB
 		$tab_content = array();
 		array_push($tab_content, array('Berita','tab_view', $tab, 'tab/admin_berita_tab'));
 		
 		// SET JAVASCRIPT SESSION
-		$this->session->set_userdata('JS_INIT', 'dataTable_1, v_formBerita, ajaxFormInsert, ajaxFormDelete');
+		$this->session->set_userdata('JS_INIT', 'dataTable_1, v_formBerita, ajaxFormInsert, ajaxTableDelete');
 		
 		
 		$data['tab_content'] = $tab_content;
+		$this->load->vars($data);
+		$this->load->view('template');
+	}
+	
+	function berita(){
+		if(!$this->uri->segment(3))
+			redirect($this->uri->segment(1));
+		
+		//GET BERITA DATA
+		$rawData = $this->berita_model->get_berita_by_id();
+			
+		//LOAD LAYOUT VARIABLE
+		$data['title'] = 'Sistem Akademik Sekolah - Ubah Berita';
+		$data['main'] = 'template/form_container';
+		$data['backend'] = $this->sas_constants->get_backend_attribute(array('javascript', 'css', 'layout_image'));
+		$data['row'] = array('Update Berita', 'form/form_admin_berita_update', array('formAction' => 'ajax_service/berita_update', 'addClass' => 'ajaxFormUpdate'), $rawData);
+		
+		// SET JAVASCRIPT SESSION
+		$this->session->set_userdata('JS_INIT', 'v_formBerita, ajaxFormUpdate');
+		
 		$this->load->vars($data);
 		$this->load->view('template');
 	}

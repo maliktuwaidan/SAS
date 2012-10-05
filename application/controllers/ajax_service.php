@@ -20,12 +20,13 @@ class ajax_service extends CI_Controller {
 	{ redirect('berita'); }
 	
 	function berita_delete() 
-	{ 
-		echo '<pre>'.$this->berita_model->ajax_delete().'</pre>';
-	}
+	{ echo '<pre>'.$this->berita_model->ajax_delete().'</pre>'; }
 	
 	function berita_insert() 
 	{  echo '<pre>'.$this->berita_model->ajax_insert().'</pre>'; }
+	
+	function berita_update() 
+	{  echo '<pre>'.$this->berita_model->ajax_update().'</pre>'; }
 
 }
 

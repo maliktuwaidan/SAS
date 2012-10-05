@@ -33,8 +33,9 @@ class javascript extends CI_Controller {
 //===========================================================================================
 //INIT AJAX FORM=============================================================================
 		
-		if(in_array('ajaxFormDelete', $this->js)) array_push($elements,  $this->ajax_form_delete());
+		if(in_array('ajaxTableDelete', $this->js)) array_push($elements,  $this->ajax_table_delete());
 		if(in_array('ajaxFormInsert', $this->js)) array_push($elements,  $this->ajax_form_insert());
+		if(in_array('ajaxFormUpdate', $this->js)) array_push($elements,  $this->ajax_form_update());
 		
 /*INIT AJAX FORM END  =======================================================================
 *********************************************************************************************/
@@ -64,8 +65,12 @@ class javascript extends CI_Controller {
 		return '$(".ajaxFormInsert").submit(function() {if (confirm("Anda yakin dengan data yang sudah di input ?")==true){var ajaxForm = this;$.ajax({type: "POST",url: $(this).attr("action"),data: $(this).serialize(),success: function(data) {$(".sas-message").html(data).show("slow");}})}return false;});';
 	}
 	
-	function ajax_form_delete(){
-		return '$(".ajaxFormDelete").submit(function() {if (confirm("Anda Yakin Akan Menghapus Record ini ?")==true){var ajaxForm = this;$.ajax({type: "POST",url: $(this).attr("action"),data: $(this).serialize(),success: function(data) {$(".sas-message").html(data).show("slow");$(ajaxForm).closest("tr").empty();}})}return false;});';
+	function ajax_form_update(){
+		return '$(".ajaxFormUpdate").submit(function() {if (confirm("Anda yakin dengan data yang sudah di input ?")==true){var ajaxForm = this;$.ajax({type: "POST",url: $(this).attr("action"),data: $(this).serialize(),success: function(data) {$(".sas-message").html(data).show("slow");}})}return false;});';
+	}
+	
+	function ajax_table_delete(){
+		return '$(".ajaxTableDelete").submit(function() {if (confirm("Anda Yakin Akan Menghapus Record ini ?")==true){var ajaxForm = this;$.ajax({type: "POST",url: $(this).attr("action"),data: $(this).serialize(),success: function(data) {$(".sas-message").html(data).show("slow");$(ajaxForm).closest("tr").empty();}})}return false;});';
 	}
 	
 	function document_ready($params = array()){
@@ -75,7 +80,6 @@ class javascript extends CI_Controller {
 	function adminFormBerita(){
 		$result = array();
 		array_push($result, 'var hb_silk_icon_set_blue = $("#contentBerita").css("height","200").htmlbox({toolbars:[["bold","italic","underline","strike","sub","sup","separator_dots","undo","redo","separator_dots","left","center","right","justify","separator_dots","ol","ul","indent","outdent","separator_dots","link","unlink","image"]],icons:"silk",skin:"blue",idir:"'.base_url().'_/img/rtf'.'"});');
-		//array_push($result, "$('#berita').validate({rules:{judulBerita:{".$this->inputText."}}, debug:true});");
 		return implode("",$result);
 	}
 	

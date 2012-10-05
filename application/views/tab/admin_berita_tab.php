@@ -35,7 +35,7 @@
 						break;
 						
 						case 'form_view':
-							$this->load->view($row['2']);
+							$this->load->view($row['3'], array('resource' => $row['2']));
 						break;
 
 						default:
