@@ -1,9 +1,16 @@
-<?php echo form_open('administrator', 'id="berita" class="form-horizontal"'); ?>
+<?php echo form_open('ajax_service/berita_insert', 'id="berita" class="form-horizontal ajaxFormInsert"'); ?>
 
 	<div class="control-group">
 		<label class="control-label" for="judulBerita">Judul berita</label>
 		<div class="controls">
 			<input type="text" name="judulBerita" id="judulBerita">
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="tagBerita">Tag berita</label>
+		<div class="controls">
+			<input type="text" name="tagBerita" id="tagBerita">
 		</div>
 	</div>
 	
@@ -14,9 +21,17 @@
 		</div>
 	</div>
 	
+	<div class="control-group">
+		<label class="control-label" for="publishBerita"></label>
+		<div class="controls">
+			<input type="checkbox" name="publishBerita" id="publishBerita" checked> Publish untuk Murid dan Karyawan.
+		</div>
+	</div>
+	
 	<div class="control-group warning">
 		<div class="controls">
 			<button type="submit" class="btn">Post</button>  
+			<button type="reset" class="btn">reset</button>  
 		</div>
 	</div>
 	

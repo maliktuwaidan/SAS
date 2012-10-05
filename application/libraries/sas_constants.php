@@ -86,6 +86,11 @@ class sas_constants {
 		return 'SAS-'.$time['0'].'-'.$time['mday'].$time['mon'].'-'.$time['year'];
 	}
 	
+	public function get_sas_date() {
+		$time = getdate();	
+		return $time['year'].'-'.$time['mon'].'-'.$time['mday'].' '.$time['hours'].':'.$time['minutes'].':'.$time['seconds'];
+	}
+	
 	public function get_image_path() {	
 		return base_url().'_/img/'; ;
 	}

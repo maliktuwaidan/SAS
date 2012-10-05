@@ -8,7 +8,7 @@ class administrator extends CI_Controller {
 		
 		// LOAD MODEL
 		$this->load->model('login_model');
-		$this->load->model('tabbed_model');
+		$this->load->model('berita_model');
 		
 		// CHECK SESSION
 		if(!$this->login_model->_check_user_session())
@@ -22,7 +22,6 @@ class administrator extends CI_Controller {
 	
 	public function index() {
 		
-		
 		//LOAD LAYOUT VARIABLE
 		$data['title'] = 'Sistem Akademik Sekolah - Login';
 		$data['main'] = 'template/left_tab_container';
@@ -30,28 +29,25 @@ class administrator extends CI_Controller {
 		
 		//LOAD NAVIGATION VARIABLE
 		
-		//LOAD MAIN CONTENT VARIABLE
-		$tableContent1 = $dataTable1 = array();
-		array_push($tableContent1, array('content 1','content 2','content 3', 'content 4', 'content 5', 'content 6'));
-		array_push($tableContent1, array('content 1','content 2','content 3', 'content 4', 'content 5', 'content 6'));
-		array_push($tableContent1, array('content 1','content 2','content 3', 'content 4', 'content 5', 'content 6'));
-		array_push($tableContent1, array('content 1','content 2','content 3', 'content 4', 'content 5', 'content 6'));
-		array_push($tableContent1, array('content 1','content 2','content 3', 'content 4', 'content 5', 'content 6'));
+		//LOAD MAIN CONTENT VARIABLE======================================================================================
 		
-		
-		$dataTable1['header'] = array('header 1','header 2','header 3', 'header 4', 'header 5', 'header 6');
-		$dataTable1['content'] = $tableContent1;
-		$dataTable1['id'] = 'dataTable_2';
-		
+		//LOAD INIT DATA FOR BERITA
+		$dataTableBerita = array();
+		$dataTableBerita['header'] = array('Judul Berita', 'Tag Berita', 'Flag Publish', 'Update Terakhir', '', '');
+		$dataTableBerita['content'] = $this->berita_model->get_all_admin_berita();
+		$dataTableBerita['id'] = 'dataTable_1';
+		//print_r($dataTableBerita);
 		$tab = array();
-		array_push($tab, array('Cari Berita','table_view', $dataTable1));
-		array_push($tab, array('Tambah Berita','form_view', 'form_berita'));
-							
+		array_push($tab, array('Cari Berita','table_view', $dataTableBerita, 'table/admin_berita_table'));
+		array_push($tab, array('Tambah Berita','form_view', 'form/form_berita'));
+		
+		// SETING TAB
 		$tab_content = array();
-		array_push($tab_content, array('Berita','tab_view', $tab));
+		array_push($tab_content, array('Berita','tab_view', $tab, 'tab/admin_berita_tab'));
 		
 		// SET JAVASCRIPT SESSION
-		$this->session->set_userdata('JS_INIT', 'dataTable_1, dataTable_2, v_formBerita, v_formBerita2');
+		$this->session->set_userdata('JS_INIT', 'dataTable_1, v_formBerita, ajaxFormInsert, ajaxFormDelete');
+		
 		
 		$data['tab_content'] = $tab_content;
 		$this->load->vars($data);

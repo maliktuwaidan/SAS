@@ -35,13 +35,9 @@
 						break;
 						
 						case 'form_view':
-							$this->load->view('form/'.$row['2']);
+							$this->load->view($row['2']);
 						break;
 
-						case 'tab_view':
-							$this->load->view($row['2'], array('resource' => $row['2']));
-						break;
-						
 						default:
 							exit('The tab content is not set correctly.');
 					}
