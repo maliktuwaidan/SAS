@@ -37,7 +37,7 @@ class berita extends CI_Controller {
 		
 		//SETING TABLE ====================================================================================
 		$dataTable = array();
-		$dataTable['header'] = array('Judul Berita', 'Content', 'Posting Oleh', 'Terakhir Diupdate', 'Tag Posting');
+		$dataTable['header'] = array('Judul', 'Content', 'Posting Oleh', 'Update Terakhir', 'Tag Posting');
 		$dataTable['content'] = $raw_berita_data;
 		$dataTable['id'] = 'dataTable_1';
 		

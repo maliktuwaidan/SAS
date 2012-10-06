@@ -62,7 +62,7 @@ class javascript extends CI_Controller {
 	}
 	
 	function ajax_form_insert(){
-		return '$(".ajaxFormInsert").submit(function() {if (confirm("Anda yakin dengan data yang sudah di input ?")==true){var ajaxForm = this;$.ajax({type: "POST",url: $(this).attr("action"),data: $(this).serialize(),success: function(data) {$(".sas-message").html(data).show("slow");}})}return false;});';
+		return '$(".ajaxFormInsert").submit(function() {if (confirm("Anda yakin dengan data yang sudah di input ?")==true){var ajaxForm = this;$.ajax({type: "POST",url: $(this).attr("action"),data: $(this).serialize(),success: function(data) {$(".sas-message").html(data).show("slow");window.location.replace(js_base_url);}})}return false;});';
 	}
 	
 	function ajax_form_update(){

@@ -27,6 +27,9 @@
 	<!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+	<script>
+		var js_base_url = "<?php echo base_url($this->uri->segment(1)); ?>";
+	</script>
 	<?php 
 		foreach($backend['javascript'] as $row) echo $row; 
 		if($this->session->userdata('JS_INIT')){
